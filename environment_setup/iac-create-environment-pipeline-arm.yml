@@ -15,8 +15,8 @@ pr:
       - environment_setup/arm-templates/*
 
 pool:
-  name: "Azure Pipelines" 
-  vmImage: "Hosted Agent"
+  name: "Default" 
+  vmImage: "DESKTOP-T3D0KQK"
 
 variables:
   - group: devopsforai-aml-vg
