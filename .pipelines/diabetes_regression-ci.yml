@@ -3,7 +3,7 @@
 resources:
   containers:
   - container: mlops
-    include: environment_setup/Dockerfile
+    image: environment_setup/Dockerfile
 
 pr: none
 trigger:
