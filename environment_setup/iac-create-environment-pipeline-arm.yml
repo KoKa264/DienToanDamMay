@@ -2,21 +2,21 @@
 trigger:
   branches:
     include:
-      - master
+      - main
   paths:
     include:
       - environment_setup/arm-templates/*
 pr:
   branches:
     include:
-      - master
+      - main
   paths:
     include:
       - environment_setup/arm-templates/*
 
 pool:
   name: "default" 
-  vmImage: "DESKTOP-T3D0KQK"
+  vmImage: "Hosted Agent"
 
 variables:
   - group: devopsforai-aml-vg
