@@ -16,7 +16,7 @@ pr:
 
 pool:
   name: "Default" 
-  vmImage: "DESKTOP-T3D0KQK"
+  vmImage: "agent"
 
 variables:
   - group: devopsforai-aml-vg
