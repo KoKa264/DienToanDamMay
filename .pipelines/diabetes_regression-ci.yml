@@ -9,7 +9,7 @@ pr: none
 trigger:
   branches:
     include:
-    - master
+    - main
   paths:
     include:
     - diabetes_regression/
@@ -22,7 +22,8 @@ variables:
 - group: devopsforai-aml-vg
 
 pool:
-  vmImage: ubuntu-latest
+  name: "default"
+  vmImage: "agent"
 
 stages:
 - stage: 'Model_CI'
