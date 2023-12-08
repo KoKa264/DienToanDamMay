@@ -22,8 +22,8 @@ variables:
 - group: devopsforai-aml-vg
 
 pool:
-  name: "default"
-  vmImage: "agent"
+  
+  vmImage: "node:latest"
 
 stages:
 - stage: 'Model_CI'
