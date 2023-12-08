@@ -1,5 +1,10 @@
 # Continuous Integration (CI) pipeline that orchestrates the training, evaluation, and registration of the diabetes_regression model.
-
+- task: AzurePowerShell@5
+  inputs:
+    azureSubscription: 'Azure for Students(a7091625-f115-4158-a096-a141747c6db8)'
+    ScriptType: 'FilePath'
+    azurePowerShellVersion: 'LatestVersion'
+    
 resources:
   containers:
   - container: mlops
