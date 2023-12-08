@@ -36,6 +36,24 @@ stages:
     timeoutInMinutes: 0
     steps:
     - template: code-quality-template.yml
+  # Azure PowerShell v5
+# Run a PowerShell script within an Azure environment.
+- task: AzurePowerShell@5
+  inputs:
+    azureSubscription: # string. Alias: ConnectedServiceNameARM. Required. Azure Subscription. 
+    #ScriptType: 'FilePath' # 'FilePath' | 'InlineScript'. Script Type. Default: FilePath.
+    #ScriptPath: # string. Optional. Use when ScriptType = FilePath. Script Path. 
+    #Inline: # string. Optional. Use when ScriptType = InlineScript. Inline Script. 
+    #ScriptArguments: # string. Optional. Use when ScriptType = FilePath. Script Arguments. 
+    #errorActionPreference: 'stop' # 'stop' | 'continue' | 'silentlyContinue'. ErrorActionPreference. Default: stop.
+    #FailOnStandardError: false # boolean. Fail on Standard Error. Default: false.
+  # Azure PowerShell version options
+    #azurePowerShellVersion: 'OtherVersion' # 'LatestVersion' | 'OtherVersion'. Alias: TargetAzurePs. Azure PowerShell Version. Default: OtherVersion.
+    preferredAzurePowerShellVersion: # string. Alias: CustomTargetAzurePs. Required when TargetAzurePs = OtherVersion. Preferred Azure PowerShell Version. 
+  # Advanced
+    #pwsh: false # boolean. Use PowerShell Core. Default: false.
+    #validateScriptSignature: false # boolean. Optional. Use when ScriptType = FilePath. Validate script signature. Default: false.
+    #workingDirectory: # string. Working Directory.
     - task: AzureCLI@1
       inputs:
         azureSubscription: '$(WORKSPACE_SVC_CONNECTION)'
