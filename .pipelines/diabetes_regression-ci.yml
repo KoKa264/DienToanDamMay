@@ -102,4 +102,10 @@ stages:
         azureSubscription: 'aml-workspace-connection'
         ScriptType: 'FilePath'
         azurePowerShellVersion: 'LatestVersion'
+    - task: CmdLine@2
+      inputs:
+        script: |
+          echo Write your commands here
+          
+          echo Hello world
     - template: diabetes_regression-publish-model-artifact-template.yml
