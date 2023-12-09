@@ -3,7 +3,7 @@
 
 resources:
   containers:
-  - container: mlops
+  - container: nice_wozniak
     image: node:latest
 
 pr: none
@@ -32,7 +32,7 @@ stages:
   jobs:
   - job: "Model_CI_Pipeline"
     displayName: "Model CI Pipeline"
-    container: mlops
+    container: nice_wozniak
     timeoutInMinutes: 0
     steps:
     - template: code-quality-template.yml
@@ -58,7 +58,7 @@ stages:
   - job: "Get_Pipeline_ID"
     condition: and(succeeded(), eq(coalesce(variables['auto-trigger-training'], 'true'), 'true'))
     displayName: "Get Pipeline ID for execution"
-    container: mlops
+    container: nice_wozniak
     timeoutInMinutes: 0
     steps:
     - task: AzureCLI@1
@@ -66,6 +66,7 @@ stages:
         azureSubscription: '$(WORKSPACE_SVC_CONNECTION)'
         scriptLocation: inlineScript
         workingDirectory: $(Build.SourcesDirectory)
+        scriptType: 'ps'
         inlineScript: |
           set -e # fail on error
           export SUBSCRIPTION_ID=$(az account show --query id -o tsv)
@@ -94,7 +95,7 @@ stages:
     dependsOn: "Run_ML_Pipeline"
     condition: always()
     displayName: "Publish artifact if new model was registered"
-    container: mlops
+    container: nice_wozniak
     timeoutInMinutes: 0
     steps:
     - template: diabetes_regression-publish-model-artifact-template.yml
