@@ -4,7 +4,7 @@
 resources:
   containers:
   - container: mlops
-    image: node:latest
+    image: mcr.microsoft.com/azure-powershell:latest
 
 pr: none
 trigger:
