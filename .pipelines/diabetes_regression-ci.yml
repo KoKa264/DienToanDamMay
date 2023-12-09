@@ -4,7 +4,7 @@
 resources:
   containers:
   - container: mlops
-    image: mcr.microsoft.com/azure-powershell:latest
+    image: node:latest
 
 pr: none
 trigger:
@@ -24,7 +24,7 @@ variables:
 
 pool:
   name: "default"
-  vmImage: "agent"
+  vmImage: "myagents"
 
 stages:
 - stage: 'Model_CI'
